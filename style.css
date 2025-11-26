@@ -1,0 +1,405 @@
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,*:before,*:after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+  height: 100vh;
+  width: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow: hidden;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;max-width: 100%;opacity: 75%;}
+img:hover{opacity: 100%;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+/* Importando a fonte fofa do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+body {
+  font-family: 'Amatic SC', cursive; 
+  color: #E0BBE4; /* Lilás Claro para o texto */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+  background-color: #3A1C3C; /* Vinho Escuro para o fundo da página */
+  
+  /* Centralização total do container */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  overflow: hidden; 
+}
+button {
+  opacity: 75%;
+  margin: .5rem 0; /* Ajuste para vertical */
+  width: 180px; 
+  height: 60px; 
+  background-color: #f0f0f0;
+  color: #000;
+  font-size: 2.8vmin; 
+  font-weight: 700;
+  border-left: .2rem #ffffff solid;
+  border-right: .2rem #b9b9b9 solid; 
+  border-top: .2rem #ffffff solid;
+  border-bottom: .2rem #b9b9b9 solid;
+  border-radius: 8px; 
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  opacity: 100%;
+  background-color: #d4d4d4;
+  border-left: .2rem #f0f0f0 solid;
+  border-right: .2rem #afafaf solid; 
+  border-top: .2rem #f0f0f0 solid;
+  border-bottom: .2rem #afafaf solid;
+}
+.hard:hover{
+  background-color: #B30059; /* Vinagre/Rosa forte para o difícil */
+  color: white;
+  border-left: .2rem #E0BBE4 solid;
+  border-right: .2rem #5E487C solid; 
+  border-top: .2rem #E0BBE4 solid;
+  border-bottom: .2rem #5E487C solid;
+}
+button:active {
+  opacity: 100%;
+  background-color: #494949;
+  color: #E0BBE4;
+  border-left: .2rem #e2e2e2 solid;
+  border-right: .2rem #a0a0a0 solid; 
+  border-top: .2rem #e2e2e2 solid;
+  border-bottom: .2rem #a0a0a0 solid;
+} 
+button:disabled {
+  background-color: #cfcfcf;
+  color: #adadad;
+  border-left: .2rem #cecece solid;
+  border-right: .2rem #adadad solid; 
+  border-top: .2rem #cecece solid;
+  border-bottom: .2rem #adadad solid;
+}
+.container {
+  padding-right: 0; /* Corrigido */
+  background: linear-gradient(#3A1C3C, #5E487C, #3A1C3C);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px; /* Limite de largura para desktop */
+  height: 100%;
+  max-height: 700px; /* Limite de altura para desktop */
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.screen {
+  width: 85%;
+  height: 85%;
+  position: absolute; /* Usando Absolute + Transform para centralização perfeita */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  overflow: hidden;
+  background-color: #272727;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  border-radius: 10px;
+  
+  /* Centralização do conteúdo interno */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.start-screen {
+  width: 100%;
+  height: 100%;
+  transition: .5s;
+  z-index: 4;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.start-screen-title {
+  font-size: 8vmin;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.start-screen-subtitle {
+  margin-top: 0;
+  font-size: 5vmin;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.start-screen-message {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 2.5vmin;
+}
+.difficult-block {
+  width: 100%;
+  height: 100%;
+  transition: .5s;
+  z-index: 3;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 100%;
+}
+.title {
+  margin-bottom: 1.5rem;
+  font-size: 4.5vmin;
+  font-weight: 700;
+}
+.difficult-buttons {
+  display: flex;
+  flex-direction: column; /* Botões um abaixo do outro */
+  align-items: center;
+  margin-bottom: 1rem;
+  width: auto;
+}
+.game-space {
+  margin: 0 auto;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transition: .5s;
+  left: 0;
+  top: 100%;
+  z-index: 2;
+  
+  /* Centralização do grid */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+/* Configuração dos Grids */
+.game-space-easy {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .8rem;
+  max-width: 90%;
+  max-height: 90%;
+}
+.game-space-mid {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: .8rem;
+  max-width: 90%;
+  max-height: 90%;
+}
+.game-space-hard {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: .8rem;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* **CORREÇÃO DE CENTRALIZAÇÃO** */
+/* O .game-item agora tem um tamanho e é centralizado no espaço do grid. */
+.game-item {
+  position: relative;
+  /* Removemos width/padding-bottom 100% */
+  width: 100%; /* Temporariamente mantido, mas o tamanho real será definido pelo min/max-height no media query */
+  max-width: 150px; /* Limite de tamanho */
+  height: 100%;
+  max-height: 150px;
+  
+  /* Centralização absoluta do item no centro da célula do grid (se for menor que a célula) */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.back-img, .front-img {
+  transition: 1.1s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+  /* Definimos o tamanho das imagens para 100% do seu pai (.game-item) */
+  position: absolute;
+  width: 100%; 
+  height: 100%;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #E0BBE4; /* Borda da bolinha */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.front-img {
+  border-radius: 50%;
+}
+.victory-screen {
+  position: absolute;
+  transition: .5s;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.victory-img {
+  width: 40%;
+  margin-bottom: 1.5rem;
+}
+.play-again-block {
+  transition: .5s;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  width: auto;
+}
+.background {
+  width: 100%; /* Corrigido: Ocupa 100% do container */
+  height: 100%; /* Ocupa 100% do container */
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+.background-img {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Corrigido: Garante que a imagem preencha a área */
+  opacity: 0.3;
+}
+.flip-phone{
+  min-width: 100%;
+  min-height: 100%;
+  background: black;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.flip-phone p {
+  text-align: center;
+  color: white;
+  font-size: 3vmin;
+}
+.flip-phone-img {
+  width: 25%;
+  max-width: 150px;
+  margin-bottom: 1.2rem;
+  animation: flipflip 2s linear infinite;
+}
+@keyframes flipflip {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
+}
+
+/* Media Query para telas menores */
+@media (max-width: 1200px) {
+  .container {
+    padding-right: 0%;
+    background: linear-gradient(#3A1C3C, #5E487C, #3A1C3C);
+    max-width: 95%;
+    max-height: 95%;
+  }
+  .screen {
+    width: 90%;
+    height: 90%;
+  }
+  .background {
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  button {
+    width: 80%; /* Botões mais largos no mobile */
+    height: 8vh;
+    font-size: 3vmin;
+    margin: .8rem 0;
+  }
+  .start-screen-title {
+    font-size: 9vmin;
+  }
+  .start-screen-subtitle {
+    font-size: 6vmin;
+  }
+  .start-screen-message {
+    font-size: 3vmin;
+    bottom: 1.5rem;
+  }
+  .title {
+    font-size: 5vmin;
+  }
+  .game-space-easy, .game-space-mid, .game-space-hard {
+    gap: .5rem;
+    padding: .5rem;
+  }
+}
+
+/* Media Query específica para dispositivos em modo retrato (celular em pé) */
+@media (orientation: portrait) {
+    .flip-phone {
+        display: flex;
+    }
+    .container {
+        display: none;
+    }
+}
+
+/* Media Query específica para dispositivos em modo paisagem (celular deitado) */
+@media (orientation: landscape) {
+    .flip-phone {
+        display: none;
+    }
+    .container {
+        display: flex;
+    }
+}
